@@ -19,6 +19,8 @@ public class Main {
         // TODO: check if provided path is actually a path
         textAsString = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
     }
+
+    /*
         BufferedReader br = new BufferedReader(fr);
         String line;
         while ((line = br.readLine()) != null){
