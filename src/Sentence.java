@@ -19,9 +19,9 @@ public class Sentence {
     }
 
 
-    //private ArrayList<Word> splitSentenceIntoWords(Script content) {
-    //    //split sentence into words by remo
-    //}
-
-
+    public List<Texture<Script>> splitSentenceIntoWords() {
+        Texture<Script> chars = new Texture<Script>(Script.of("[!?.:]+"));
+        List<Texture<Script>> sentencesList = content.split(chars);
+        return sentencesList;
+    }
 }

@@ -1,6 +1,11 @@
 import lingologs.Script;
+import lingologs.Texture;
+
+import java.util.List;
 
 public class Processor {
+
+    private Sentence sentence;
 
     public Processor() {
     }
@@ -15,5 +20,6 @@ public class Processor {
     //public Script normalize(Script text) {
 //
 //    }
+
 
 }
