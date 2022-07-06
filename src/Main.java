@@ -7,7 +7,6 @@ public class Main {
     private static String textAsString;
 
     public static void main(String[] args) throws IOException {
-        readFile();
         System.out.printf(textAsString);
     }
 
@@ -20,38 +19,6 @@ public class Main {
         // TODO: check if provided path is actually a path
         textAsString = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
     }
-
-    /*
-    Überprüfen eines übergebenen Textes
-     */
-
-    // Pro Satz
-
-        /*
-    private static int getNumWords(Script text){
-        ArrayList<Script> wordList = getWordList(text);
-        return wordList.size();
-    }
-
-    private static int getNumCommas(Script text){
-        return text.count(",");
-    }
-
-    // Pro Wort
-
-    private static int getLengthWord(Script word){
-        return word.length();
-    }
-
-    //funktioniert noch nix
-    private static ArrayList<Script> checkForeignWords(Script text) throws IOException{
-        File foreignWordsFile = new File("./src/Data/Fremdwörter.txt");
-        FileReader fr = new FileReader(foreignWordsFile);
-
-        ArrayList<Script> wordsList = getWordList(text);
-        ArrayList<String> foreignWordsList = new ArrayList<>();
-        ArrayList<Script> foreignWordsInText = new ArrayList<>();
-
         BufferedReader br = new BufferedReader(fr);
         String line;
         while ((line = br.readLine()) != null){
