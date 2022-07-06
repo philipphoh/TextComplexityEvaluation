@@ -7,7 +7,9 @@ public class Main {
     private static String textAsString;
 
     public static void main(String[] args) throws IOException {
+        readFile();
         System.out.printf(textAsString);
+        
     }
 
     private static void readFile() throws IOException {
