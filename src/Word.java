@@ -55,4 +55,9 @@ public class Word {
     public void setPassive(boolean passive) {
         isPassive = passive;
     }
+
+    @Override
+    public String toString() {
+        return content.toString();
+    }
 }

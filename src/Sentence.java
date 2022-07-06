@@ -1,5 +1,4 @@
 import lingologs.Script;
-import lingologs.Texture;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,7 @@ public class Sentence {
     }
 
     public ArrayList<Word> splitSentenceIntoWords() {
-        List<Script> wordsList = content.split("\\w+");
+        List<Script> wordsList = content.split("[^A-ZÜÖÄßa-züöä]+");
         for (Script word : wordsList){
             words.add(new Word(word));
         }
