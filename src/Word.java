@@ -44,8 +44,8 @@ public class Word {
         return isForeign;
     }
 
-    public void setForeign(boolean foreign) {
-        isForeign = foreign;
+    public boolean setForeign(boolean foreign) {
+        return isForeign = foreign;
     }
 
     public boolean isPassive() {
