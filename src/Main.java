@@ -1,84 +1,24 @@
-import lingolava.Mathx;
-import lingologs.Charact;
-import lingologs.Script;
-import lingologs.Texture;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class Main {
+    private static String textAsString;
 
     public static void main(String[] args) throws IOException {
-//
-//        BufferedReader brInput, br;
-//        String textContent;
-//
-//        brInput = new BufferedReader(new InputStreamReader(System.in));
-//        System.out.println("Enter the path to the text to be evauated:");
-//        String filePath = brInput.readLine();
-//        // TODO: check if provided path is actually a path
-//        textContent = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
-//
-//        System.out.printf(textContent);
-
-        Sentence sentence = new Sentence(new Script("How are you ,,,doing? Wie g,,,ehts dirflkf,fnfjv"));
-        System.out.println(sentence.splitSentenceIntoWords());
-        System.out.println(sentence.getNumCommas());
-
-
-
-
-//        Text textToEvaluate = new Text(new Script("hello how are you do you want to how a hello?"));
-//        System.out.println(textToEvaluate.getContent());
-/*
-        Script text = new Script("hello how are you do you want to how a hello?");
-        System.out.println(getNumWords(text));
-        System.out.println(getNumCommas(text));
-        System.out.println(checkForeignWords(text));
-        System.out.println(checkAbbreviations(text));
-        //getAverageValueSentence(text);
-        System.out.println(getWordFrequency(text));
-        */
-
+        System.out.printf(textAsString);
     }
 
-    /*
-    Überprüfen eines übergebenen Textes
-     */
+    private static void readFile() throws IOException {
+        BufferedReader brInput;
 
-    // Pro Satz
-
-        /*
-    private static int getNumWords(Script text){
-        ArrayList<Script> wordList = getWordList(text);
-        return wordList.size();
+        brInput = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the absolute path to the text to be evaluated:");
+        String filePath = brInput.readLine();
+        // TODO: check if provided path is actually a path
+        textAsString = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
     }
-
-    private static int getNumCommas(Script text){
-        return text.count(",");
-    }
-
-    // Pro Wort
-
-    private static int getLengthWord(Script word){
-        return word.length();
-    }
-
-    //funktioniert noch nix
-    private static ArrayList<Script> checkForeignWords(Script text) throws IOException{
-        File foreignWordsFile = new File("./src/Data/Fremdwörter.txt");
-        FileReader fr = new FileReader(foreignWordsFile);
-
-        ArrayList<Script> wordsList = getWordList(text);
-        ArrayList<String> foreignWordsList = new ArrayList<>();
-        ArrayList<Script> foreignWordsInText = new ArrayList<>();
-
         BufferedReader br = new BufferedReader(fr);
         String line;
         while ((line = br.readLine()) != null){
