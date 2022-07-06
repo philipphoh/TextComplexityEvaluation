@@ -27,8 +27,9 @@ public class Main {
 //
 //        System.out.printf(textContent);
 
-        Sentence sentence = new Sentence(new Script("How are you doing? Wie gehts dir"));
+        Sentence sentence = new Sentence(new Script("How are you ,,,doing? Wie g,,,ehts dirflkf,fnfjv"));
         System.out.println(sentence.splitSentenceIntoWords());
+        System.out.println(sentence.getNumCommas());
 
 
 

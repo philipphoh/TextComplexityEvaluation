@@ -22,4 +22,9 @@ public class Sentence {
         List<Script> sentencesList = content.split("[!?.:]+");
         return sentencesList;
     }
+
+    public int getNumCommas(){
+        numCommas = content.count(",");
+        return numCommas;
+    }
 }
