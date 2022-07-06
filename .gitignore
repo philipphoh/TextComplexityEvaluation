@@ -30,3 +30,4 @@ bin/
 
 ### lingoLibry ###
 /.idea/libraries/LingoLibry.xml
+.idea/uiDesigner.xml

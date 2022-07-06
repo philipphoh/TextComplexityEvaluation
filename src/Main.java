@@ -9,6 +9,10 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
+        Text textToEvaluate = new Text(new Script("hello how are you do you want to how a hello?"));
+        System.out.println(textToEvaluate.getContent());
+/*
         Script text = new Script("hello how are you do you want to how a hello?");
         System.out.println(getNumWords(text));
         System.out.println(getNumCommas(text));
@@ -16,6 +20,8 @@ public class Main {
         System.out.println(checkAbbreviations(text));
         //getAverageValueSentence(text);
         System.out.println(getWordFrequency(text));
+        */
+
     }
 
     /*
@@ -24,6 +30,7 @@ public class Main {
 
     // Pro Satz
 
+        /*
     private static int getNumWords(Script text){
         ArrayList<Script> wordList = getWordList(text);
         return wordList.size();
@@ -113,6 +120,8 @@ public class Main {
 
     /* Verarbeitung der Daten der Überprüfung */
     //funktioniert noch nix:< Warummmmmmm
+
+    /*
     private static double getEntropy (Script text){
         return Mathx.info(getWordFrequency(text));
     }
@@ -147,4 +156,5 @@ public class Main {
         }
         return words;
     }
+    */
 }
