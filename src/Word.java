@@ -16,28 +16,43 @@ public class Word {
         this.isPassive = false;
     }
 
-
     public Script getContent() {
         return content;
     }
 
-    public int getLength(){
-        return content.length();
+    public void setContent(Script content) {
+        this.content = content;
     }
 
     public boolean isComposition() {
         return isComposition;
     }
 
+    public void setComposition(boolean composition) {
+        isComposition = composition;
+    }
+
     public boolean isAbbreviations() {
         return isAbbreviations;
+    }
+
+    public void setAbbreviations(boolean abbreviations) {
+        isAbbreviations = abbreviations;
     }
 
     public boolean isForeign() {
         return isForeign;
     }
 
+    public void setForeign(boolean foreign) {
+        isForeign = foreign;
+    }
+
     public boolean isPassive() {
         return isPassive;
+    }
+
+    public void setPassive(boolean passive) {
+        isPassive = passive;
     }
 }
