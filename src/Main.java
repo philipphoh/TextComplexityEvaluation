@@ -1,4 +1,5 @@
 import lingolava.Mathx;
+import lingologs.Charact;
 import lingologs.Script;
 import lingologs.Texture;
 
@@ -14,17 +15,20 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+//
+//        BufferedReader brInput, br;
+//        String textContent;
+//
+//        brInput = new BufferedReader(new InputStreamReader(System.in));
+//        System.out.println("Enter the path to the text to be evauated:");
+//        String filePath = brInput.readLine();
+//        // TODO: check if provided path is actually a path
+//        textContent = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
+//
+//        System.out.printf(textContent);
 
-        BufferedReader brInput, br;
-        String textContent;
-
-        brInput = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter the path to the text to be evauated:");
-        String filePath = brInput.readLine();
-        // TODO: check if provided path is actually a path
-        textContent = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
-
-        System.out.printf(textContent);
+        Sentence sentence = new Sentence(new Script("How are you doing? Wie gehts dir"));
+        System.out.println(sentence.splitSentenceIntoWords());
 
 
 

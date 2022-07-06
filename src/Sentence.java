@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sentence {
-    private Texture<Script> content;
+    private Script content;
     private Script normalizedContent;
     private List<Word> words;
     private int numCommas;
 
-    public Sentence(Texture<Script> content) {
+    public Sentence(Script content) {
         Processor sentenceProcessor = new Processor();
         this.content = content;
         //this.normalizedContent = sentenceProcessor.normalize()
@@ -18,10 +18,8 @@ public class Sentence {
         int numCommas = 0;
     }
 
-
-    public List<Texture<Script>> splitSentenceIntoWords() {
-        Texture<Script> chars = new Texture<Script>(Script.of("[!?.:]+"));
-        List<Texture<Script>> sentencesList = content.split(chars);
+    public List<Script> splitSentenceIntoWords() {
+        List<Script> sentencesList = content.split("[!?.:]+");
         return sentencesList;
     }
 }
