@@ -1,44 +1,24 @@
-import lingolava.Mathx;
-import lingologs.Script;
-import lingologs.Texture;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class Main {
+    private static String textAsString;
 
     public static void main(String[] args) throws IOException {
+        readFile();
+        System.out.printf(textAsString);
+    }
 
-        BufferedReader brInput, br;
-        String textContent;
+    private static void readFile() throws IOException {
+        BufferedReader brInput;
 
         brInput = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter the path to the text to be evauated:");
+        System.out.println("Enter the absolute path to the text to be evaluated:");
         String filePath = brInput.readLine();
         // TODO: check if provided path is actually a path
-        textContent = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
-
-        System.out.printf(textContent);
-
-
-//        Text textToEvaluate = new Text(new Script("hello how are you do you want to how a hello?"));
-//        System.out.println(textToEvaluate.getContent());
-/*
-        Script text = new Script("hello how are you do you want to how a hello?");
-        System.out.println(getNumWords(text));
-        System.out.println(getNumCommas(text));
-        System.out.println(checkForeignWords(text));
-        System.out.println(checkAbbreviations(text));
-        //getAverageValueSentence(text);
-        System.out.println(getWordFrequency(text));
-        */
-
+        textAsString = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
     }
 
     /*
