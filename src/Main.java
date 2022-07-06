@@ -1,7 +1,12 @@
 import lingolava.Mathx;
 import lingologs.Script;
+import lingologs.Texture;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,8 +15,20 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Text textToEvaluate = new Text(new Script("hello how are you do you want to how a hello?"));
-        System.out.println(textToEvaluate.getContent());
+        BufferedReader brInput, br;
+        String textContent;
+
+        brInput = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the path to the text to be evauated:");
+        String filePath = brInput.readLine();
+        // TODO: check if provided path is actually a path
+        textContent = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
+
+        System.out.printf(textContent);
+
+
+//        Text textToEvaluate = new Text(new Script("hello how are you do you want to how a hello?"));
+//        System.out.println(textToEvaluate.getContent());
 /*
         Script text = new Script("hello how are you do you want to how a hello?");
         System.out.println(getNumWords(text));
