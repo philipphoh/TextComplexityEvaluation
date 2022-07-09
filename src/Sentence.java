@@ -19,7 +19,7 @@ public class Sentence {
     }
 
     public ArrayList<Word> splitSentenceIntoWords() {
-        List<Script> wordsList = content.split("[^A-ZÜÖÄßa-züöä]+");
+        List<Script> wordsList = content.split("[^A-ZÜÖÄßa-züöä]+"); //Annahme: ohne Abkürzungen
         for (Script word : wordsList){
             words.add(new Word(word));
         }
@@ -37,5 +37,10 @@ public class Sentence {
 
     public ArrayList<Word> getWords() {
         return words;
+    }
+
+    @Override
+    public String toString() {
+        return content.toString();
     }
 }

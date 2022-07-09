@@ -471,7 +471,7 @@ CPU;Hauptprozessor (engl. central processing unit)
 CSU;Christlich-Soziale Union
 CVJM;Christlicher Verein Junger Menschen, früher auch: - Mädchen, - Männer
 DAAD;Deutscher Akademischer Austauschdienst
-DACH, D-A-CH;Deutschland, Austria (Österreich), Confoederatio Helvetica (Schweiz)
+DACH;Deutschland, Austria (Österreich), Confoederatio Helvetica (Schweiz)
 DAG;Deutsche Angestellten-Gewerkschaft
 DANN;Deutscher Normenausschuß
 dB;Dezibel
