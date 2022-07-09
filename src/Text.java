@@ -10,10 +10,10 @@ public class Text {
 
     public Text(Script content) {
         this.content = content;
-        //this.sentences = splitTextToSentences(content);
+        sentences = new ArrayList<>();
     }
 
-    private ArrayList<Sentence> splitTextToSentences(Script content) {
+    public ArrayList<Sentence> splitTextToSentences() {
         List<Script> sentencesList = content.split("[!?.:]+"); //Annahme: ohne Abkürzungen
         for (Script sentence : sentencesList){
             sentences.add(new Sentence(sentence));

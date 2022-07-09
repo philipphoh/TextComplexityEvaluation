@@ -16,6 +16,8 @@ public class Word {
         this.isPassive = false;
     }
 
+
+
     public Script getContent() {
         return content;
     }
@@ -44,8 +46,8 @@ public class Word {
         return isForeign;
     }
 
-    public boolean setForeign(boolean foreign) {
-        return isForeign = foreign;
+    public void setForeign(boolean foreign) {
+        isForeign = foreign;
     }
 
     public boolean isPassive() {
@@ -60,4 +62,5 @@ public class Word {
     public String toString() {
         return content.toString();
     }
+
 }
