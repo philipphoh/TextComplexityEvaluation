@@ -7,13 +7,13 @@ import java.util.regex.Pattern;
 public class Word {
 
     private Script content;
-    private boolean isComposition;
+    private boolean isCompound;
     private boolean isAbbreviations;
     private boolean isForeign;
 
     public Word(Script content) {
         this.content = content;
-        this.isComposition = false;
+        this.isCompound = false;
         this.isAbbreviations = false;
         this.isForeign = false;
     }
@@ -45,12 +45,12 @@ public class Word {
         this.content = content;
     }
 
-    public boolean isComposition() {
-        return isComposition;
+    public boolean isCompound() {
+        return isCompound;
     }
 
-    public void setComposition(boolean composition) {
-        isComposition = composition;
+    public void setCompound(boolean compound) {
+        isCompound = compound;
     }
 
     public boolean isAbbreviations() {

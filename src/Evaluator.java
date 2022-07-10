@@ -11,12 +11,14 @@ public class Evaluator {
     private ArrayList<Sentence> sentencesListFromText;
     private ArrayList<Word> wordsListFromText;
     private ArrayList<Word> foreignWordsListFromText;
+    private ArrayList<Word> compoundWordsListFromText;
 
     public Evaluator(Text text) {
         this.text = text;
         sentencesListFromText = text.splitTextToSentences();
         wordsListFromText = getWordsListFromText();
         foreignWordsListFromText = new ArrayList<>();
+        compoundWordsListFromText = new ArrayList<>();
     }
 
 
@@ -24,28 +26,36 @@ public class Evaluator {
 //
 //    }
 
-    private boolean checkCompound (Word word) throws IOException {
-        File foreignWordsFile = new File("./src/Data/CompoundWords.txt");
-        FileReader fr = new FileReader(foreignWordsFile);
+    public boolean checkCompound (Word word) throws IOException {
+        File compoundWordsFile = new File("./src/Data/CompoundWords.txt");
+        FileReader fr = new FileReader(compoundWordsFile);
 
-        ArrayList<String> foreignWordsList = new ArrayList<>();
+        ArrayList<String> compoundWordsList = new ArrayList<>();
 
         BufferedReader br = new BufferedReader(fr);
         String line;
-        while ((line = br.readLine()) != null){
-            foreignWordsList.add(line);
-            for (String foreignWord : foreignWordsList){
-                if (word.toString().equals(foreignWord.toLowerCase())){
-                    word.setForeign(true);
-                    foreignWordsListFromText.add(word);
-                    return word.isForeign();
+        while ((line = br.readLine())!= null){
+            compoundWordsList.add(line);
+            for (String compoundWord : compoundWordsList){
+                if (word.toString().equals(compoundWord.toLowerCase())){
+                    word.setCompound(true);
+                    return word.isCompound();
                 }
             }
         }
         return false;
     }
 
-    public boolean checkForeign(Word word) throws IOException {
+    public int countCompoundWords() throws IOException {
+        for (Word word :  wordsListFromText){
+            if (checkCompound(word)){
+                compoundWordsListFromText.add(word);
+            }
+        }
+        return compoundWordsListFromText.size();
+    }
+
+    private boolean checkForeign(Word word) throws IOException {
 
         File foreignWordsFile = new File("./src/Data/ForeignWords.txt");
         FileReader fr = new FileReader(foreignWordsFile);
@@ -59,7 +69,6 @@ public class Evaluator {
             for (String foreignWord : foreignWordsList){
                 if (word.toString().equals(foreignWord.toLowerCase())){
                     word.setForeign(true);
-                    foreignWordsListFromText.add(word);
                     return word.isForeign();
                 }
             }
@@ -67,7 +76,12 @@ public class Evaluator {
         return false;
     }
 
-    public int countForeignWords(){
+    public int countForeignWords() throws IOException {
+        for (Word word :  wordsListFromText){
+            if (checkForeign(word)){
+                foreignWordsListFromText.add(word);
+            }
+        }
         return foreignWordsListFromText.size();
     }
 

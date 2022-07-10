@@ -1332,11 +1332,7 @@ Akkulaufzeit
 Akkupack
 Akkusativobjekt
 Akkutriebwagen
-A-Klarinette
-A-Klasse
 Aknenarbe
-A-Kohle
-AKP-Staaten
 Akquisitionsstrategie
 Aktaufnahme
 Aktbild
@@ -1461,9 +1457,6 @@ Aktivkohle
 Aktivkohlefilter
 Aktivlautsprecher
 Aktivmatrix
-Aktivmatrix-Bildschirm
-Aktivmatrix-LCD
-Aktivmatrix-LCD-Bildschirm
 Aktivposten
 Aktivprogramm
 Aktivseite
@@ -1516,7 +1509,6 @@ Alarmzentrale
 Alarmzustand
 Albanischkurs
 Albaufstieg
-Albert-Ludwigs-Universität
 Albhochfläche
 Albstadt
 Albtraum
@@ -1527,8 +1519,6 @@ Albumtitel
 Albverein
 Albvorland
 Aleppokiefer
-Alexander-Technik
-Alexander-von-Humboldt-Gymnasium
 Algenart
 Algenbewuchs
 Algenbildung
@@ -1537,10 +1527,8 @@ Algenpilz
 Algensalat
 Algenwachstum
 Algenwuchs
-Algonkin-Sprache
 Alibifunktion
 Alibiveranstaltung
-A-Liga
 Alimentationsprinzip
 Alkalimetall
 Alkalisalz
@@ -1683,10 +1671,6 @@ Allradversion
 Allroundtalent
 Allroundunterhalter
 Allroundweltmeisterschaft
-All-Star
-All-Star-Band
-All-Star-Spiel
-All-Star-Team
 Alltag
 Alltagsarbeit
 Alltagsausgabe
@@ -2177,7 +2161,6 @@ Aluminiumblech
 Aluminiumbronze
 Aluminiumchlorid
 Aluminiumdeckel
-Aluminium-Elektrolytenkondensator
 Aluminiumfabrik
 Aluminiumfelge
 Aluminiumfenster
@@ -2206,7 +2189,6 @@ Alzheimerforschung
 Alzheimerkrankheit
 Alzheimerpatient
 Amalgamfüllung
-A-Mannschaft
 Amaryllisgewächs
 Amateurabteilung
 Amateurastronom
@@ -2299,8 +2281,6 @@ Amokfahrt
 Amoklauf
 Amokläufer
 Amokschütze
-a-Moll
-Amor-Typ
 Ampelanlage
 Ampelfarbe
 Ampelkarte
@@ -2431,7 +2411,6 @@ Amtszimmer
 Amtszulage
 Analbereich
 Analoganschluss
-Analog-digital-Wandler
 Analogiebildung
 Analogieschluss
 Analogkamera
@@ -2514,7 +2493,6 @@ Anderssein
 Änderungswunsch
 Andockmanöver
 Andreaskreuz
-Andromeda-Galaxie
 Andromedanebel
 Aneignungsprozess
 Anemonenfisch
@@ -2726,7 +2704,6 @@ Animationsfilm
 Animationsprogramm
 Animationsstudio
 Animationstechnik
-Anime-Serie
 Anisgeschmack
 Anisöl
 Anissamen
@@ -3048,7 +3025,6 @@ Antennenmonteur
 Antennensystem
 Antennenträger
 Anthrazitkohle
-Anti-AKW-Bewegung
 Antiatombewegung
 Antiatomkraftbewegung
 Antibabypille
@@ -3310,11 +3286,8 @@ Apfeltasche
 Apfeltorte
 Apfelwein
 Apfelwickler
-Apgar-Score
-apl-Professur
 Apnoetauchen
 Apnoetaucher
-Apollo-Programm
 Apostelamt
 Apostelfigur
 Apostelfürst
@@ -3339,7 +3312,6 @@ Appartementhaus
 Appartementhotel
 Appartementkomplex
 Appartementwohnung
-Appeasement-Politik
 Appellationsgericht
 Appellplatz
 Appetithäppchen
@@ -3347,12 +3319,10 @@ Appetithappen
 Appetithemmer
 Appetitmacher
 Appetitzügler
-Apple-Computer
 Applikationsform
 Applikationsingenieur
 Applikationsserver
 Approbationsordnung
-Après-Ski
 Aprikosenbaum
 Aprikoseneule
 Aprikosenkern
@@ -3371,11 +3341,8 @@ Apriltag
 Aprilwetter
 Aprilwoche
 Aprilwochenende
-A-Probe
-A-Prüfung
 Apsidendrehung
 Apsismosaik
-APS-Kamera
 Aquafarm
 Aquafitness
 Aquakultur
@@ -3402,7 +3369,6 @@ Aquarienwasser
 Äquivalenzrelation
 Äquivalenzumformung
 Araberpferd
-Arabica-Kaffee
 Arachnophobie
 Arbeiterassoziation
 Arbeiteraufstand
@@ -3753,7 +3719,6 @@ Arbeitsplatzdichte
 Arbeitsplatzgarantie
 Arbeitsplatzgestaltung
 Arbeitsplatzmangel
-Arbeitsplatz-PC
 Arbeitsplatzrechner
 Arbeitsplatzsicherheit
 Arbeitsplatzsicherung
@@ -3916,7 +3881,6 @@ Arbeitszug
 Arbeitszusammenhang
 Arbeitszwang
 Arbeitszweig
-Arcade-Spiel
 Archaebakterie
 Archäologenteam
 Archäologiemuseum
@@ -3996,9 +3960,6 @@ Archivunterlagen
 Archivverwaltung
 Archivwesen
 Archivwissenschaft
-ARD-Moderator
-ARD-Serie
-ARD-Studio
 Arglist
 Argonautensage
 Argumentationsgrundlage
@@ -4040,7 +4001,6 @@ Armeebefehl
 Armeebestand
 Armeechef
 Armeedienst
-Armee-Einheit
 Armeefahrzeug
 Armeeführung
 Armeegeneral
@@ -4062,7 +4022,6 @@ Armeeverband
 Armeezeit
 Armeezeitung
 Ärmelaufschlag
-Arme-Leute-Essen
 Ärmelkanal
 Ärmelstreifen
 Armenanwalt
@@ -4143,7 +4102,6 @@ Arsenvergiftung
 Artbegriff
 Artbestimmung
 Artbildung
-Art-déco-Stil
 Artenfülle
 Artengruppe
 Artenliste
@@ -4295,8 +4253,6 @@ Arzthonorar
 Arztkittel
 Arztkoffer
 Arztkosten
-Arzt-Patienten-Beziehung
-Arzt-Patienten-Verhältnis
 Arztpraxis
 Arztrechnung
 Arztroman
@@ -4527,7 +4483,6 @@ Atlantikroute
 Atlantiküberquerung
 Atlantikwall
 Atlasgebirge
-ATM-Netz
 Atmosphäre
 Atmosphärenchemie
 Atmosphärendruck
@@ -4618,7 +4573,6 @@ Atomtest
 Atomtheorie
 Atomtod
 Atomtransport
-Atom-U-Boot
 Atomuhr
 Atomunfall
 Atomunglück
