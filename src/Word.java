@@ -1,4 +1,3 @@
-import lingologs.Charact;
 import lingologs.Script;
 
 import java.util.ArrayList;
@@ -9,13 +8,13 @@ public class Word {
 
     private Script content;
     private boolean isCompound;
-    private boolean isAbbreviations;
+    private boolean isAcronym;
     private boolean isForeign;
 
     public Word(Script content) {
         this.content = content;
         this.isCompound = false;
-        this.isAbbreviations = false;
+        this.isAcronym = false;
         this.isForeign = false;
     }
 
@@ -54,20 +53,20 @@ public class Word {
         isCompound = compound;
     }
 
-    public boolean isAbbreviations() {
-        return isAbbreviations;
-    }
-
-    public void setAbbreviations(boolean abbreviations) {
-        isAbbreviations = abbreviations;
-    }
-
     public boolean isForeign() {
         return isForeign;
     }
 
     public void setForeign(boolean foreign) {
         isForeign = foreign;
+    }
+
+    public boolean isAcronym() {
+        return isAcronym;
+    }
+
+    public void setAcronym(boolean acronym) {
+        isAcronym = acronym;
     }
 
     @Override

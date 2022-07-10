@@ -23,11 +23,11 @@ public class Evaluator {
     }
 
 
-//    private boolean checkAbbreviations(ArrayList<Word> wordsList, Word word){
-//
-//    }
+    private boolean checkAbbreviations(ArrayList<Word> wordsList, Word word){
 
-    public boolean checkCompound (Word word) throws IOException {
+    }
+
+    private boolean checkCompound (Word word) throws IOException {
         File compoundWordsFile = new File("./src/Data/composita.txt");
         FileReader fr = new FileReader(compoundWordsFile);
 
@@ -45,15 +45,6 @@ public class Evaluator {
             }
         }
         return false;
-    }
-
-    public int countCompoundWords() throws IOException {
-        for (Word word :  wordsListFromText){
-            if (checkCompound(word)){
-                compoundWordsListFromText.add(word);
-            }
-        }
-        return compoundWordsListFromText.size();
     }
 
     private boolean checkForeign(Word word) throws IOException {
@@ -77,6 +68,15 @@ public class Evaluator {
         return false;
     }
 
+    public int countCompoundWords() throws IOException {
+        for (Word word :  wordsListFromText){
+            if (checkCompound(word)){
+                compoundWordsListFromText.add(word);
+            }
+        }
+        return compoundWordsListFromText.size();
+    }
+
     public int countForeignWords() throws IOException {
         for (Word word :  wordsListFromText){
             if (checkForeign(word)){
@@ -86,6 +86,13 @@ public class Evaluator {
         return foreignWordsListFromText.size();
     }
 
+    public ArrayList<Word> getCompoundWordsListFromText() {
+        return compoundWordsListFromText;
+    }
+
+    public ArrayList<Word> getForeignWordsListFromText() {
+        return foreignWordsListFromText;
+    }
 
     //funktioniert noch nicht
     public double getEntropy (){
