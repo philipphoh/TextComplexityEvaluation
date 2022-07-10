@@ -1,4 +1,5 @@
 import lingolava.Mathx;
+import lingologs.Charact;
 import lingologs.Script;
 
 import java.io.*;
@@ -27,17 +28,17 @@ public class Evaluator {
 //    }
 
     public boolean checkCompound (Word word) throws IOException {
-        File compoundWordsFile = new File("./src/Data/CompoundWords.txt");
+        File compoundWordsFile = new File("./src/Data/composita.txt");
         FileReader fr = new FileReader(compoundWordsFile);
 
         ArrayList<String> compoundWordsList = new ArrayList<>();
 
         BufferedReader br = new BufferedReader(fr);
         String line;
-        while ((line = br.readLine())!= null){
+        while ((line = br.readLine())!= null) {
             compoundWordsList.add(line);
             for (String compoundWord : compoundWordsList){
-                if (word.toString().equals(compoundWord.toLowerCase())){
+                if (word.toString().equals(compoundWord.toLowerCase())){ //words are already normalized
                     word.setCompound(true);
                     return word.isCompound();
                 }

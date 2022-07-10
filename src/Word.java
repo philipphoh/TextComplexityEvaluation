@@ -1,3 +1,4 @@
+import lingologs.Charact;
 import lingologs.Script;
 
 import java.util.ArrayList;
