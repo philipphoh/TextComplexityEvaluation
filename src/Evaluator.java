@@ -1,5 +1,4 @@
 import lingolava.Mathx;
-import lingologs.Charact;
 import lingologs.Script;
 
 import java.io.*;
@@ -14,17 +13,13 @@ public class Evaluator {
     private ArrayList<Word> foreignWordsListFromText;
     private ArrayList<Word> compoundWordsListFromText;
 
+
     public Evaluator(Text text) {
         this.text = text;
         sentencesListFromText = text.splitTextToSentences();
         wordsListFromText = getWordsListFromText();
         foreignWordsListFromText = new ArrayList<>();
         compoundWordsListFromText = new ArrayList<>();
-    }
-
-
-    private boolean checkAbbreviations(ArrayList<Word> wordsList, Word word){
-
     }
 
     private boolean checkCompound (Word word) throws IOException {
@@ -38,7 +33,7 @@ public class Evaluator {
         while ((line = br.readLine())!= null) {
             compoundWordsList.add(line);
             for (String compoundWord : compoundWordsList){
-                if (word.toString().equals(compoundWord.toLowerCase())){ //words are already normalized
+                if (word.toString().equals(compoundWord.toLowerCase())){
                     word.setCompound(true);
                     return word.isCompound();
                 }
