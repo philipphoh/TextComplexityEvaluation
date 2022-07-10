@@ -32,16 +32,16 @@ public class Sentence {
         return numCommas;
     }
 
-    public Script getContent() {
-        return content;
-    }
-
     public ArrayList<Word> getWordsListFromSentence() {
         return wordsListFromSentence;
     }
 
     public int getNumWordsPerSentence(){
         return wordsListFromSentence.size();
+    }
+
+    public Script getContent() {
+        return content;
     }
 
     @Override
