@@ -6,7 +6,7 @@ import java.util.List;
 public class Sentence {
     private Script content;
     private Script normalizedContent;
-    private ArrayList<Word> words;
+    private ArrayList<Word> wordsListFromSentence;
     private int numCommas;
 
     public Sentence(Script content) {
@@ -15,10 +15,11 @@ public class Sentence {
         //this.normalizedContent = sentenceProcessor.normalize()
         //this.words = splitSentenceIntoWords(content);
         numCommas = 0;
-        words = new ArrayList<>();
+        wordsListFromSentence = splitSentenceIntoWords();
     }
 
     public ArrayList<Word> splitSentenceIntoWords() {
+        ArrayList<Word> words = new ArrayList<>();
         List<Script> wordsList = content.split("[^A-ZÜÖÄßa-züöä]+"); //Annahme: ohne Abkürzungen
         for (Script word : wordsList){
             words.add(new Word(word));
@@ -35,8 +36,12 @@ public class Sentence {
         return content;
     }
 
-    public ArrayList<Word> getWords() {
-        return words;
+    public ArrayList<Word> getWordsListFromSentence() {
+        return wordsListFromSentence;
+    }
+
+    public int getNumWordsPerSentence(){
+        return wordsListFromSentence.size();
     }
 
     @Override
