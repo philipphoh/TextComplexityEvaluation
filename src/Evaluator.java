@@ -5,7 +5,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class Evaluator {
     private Text text;
@@ -25,13 +24,30 @@ public class Evaluator {
 //
 //    }
 
-//    private boolean checkComposita(ArrayList<Word> wordsList, Word word){
-//
-//    }
+    private boolean checkCompound (Word word) throws IOException {
+        File foreignWordsFile = new File("./src/Data/CompoundWords.txt");
+        FileReader fr = new FileReader(foreignWordsFile);
 
-    private boolean checkForeign(Word word) throws IOException {
+        ArrayList<String> foreignWordsList = new ArrayList<>();
 
-        File foreignWordsFile = new File("./src/Data/foreignwords.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        while ((line = br.readLine()) != null){
+            foreignWordsList.add(line);
+            for (String foreignWord : foreignWordsList){
+                if (word.toString().equals(foreignWord.toLowerCase())){
+                    word.setForeign(true);
+                    foreignWordsListFromText.add(word);
+                    return word.isForeign();
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkForeign(Word word) throws IOException {
+
+        File foreignWordsFile = new File("./src/Data/ForeignWords.txt");
         FileReader fr = new FileReader(foreignWordsFile);
 
         ArrayList<String> foreignWordsList = new ArrayList<>();

@@ -5,15 +5,11 @@ import java.util.List;
 
 public class Sentence {
     private Script content;
-    private Script normalizedContent;
     private ArrayList<Word> wordsListFromSentence;
     private int numCommas;
 
     public Sentence(Script content) {
-        Processor sentenceProcessor = new Processor();
         this.content = content;
-        //this.normalizedContent = sentenceProcessor.normalize()
-        //this.words = splitSentenceIntoWords(content);
         numCommas = 0;
         wordsListFromSentence = splitSentenceIntoWords();
     }
@@ -32,12 +28,12 @@ public class Sentence {
         return numCommas;
     }
 
-    public ArrayList<Word> getWordsListFromSentence() {
-        return wordsListFromSentence;
-    }
-
     public int getNumWordsPerSentence(){
         return wordsListFromSentence.size();
+    }
+
+    public ArrayList<Word> getWordsListFromSentence() {
+        return wordsListFromSentence;
     }
 
     public Script getContent() {
