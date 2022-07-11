@@ -14,7 +14,7 @@ public class Text {
     }
 
     public ArrayList<Sentence> splitTextToSentences() {
-        List<Script> sentencesList = content.split("[!?.:]+"); //Annahme: ohne Abkürzungen
+        List<Script> sentencesList = content.split("[!?\\.:]+");
         for (Script sentence : sentencesList){
             sentences.add(new Sentence(sentence));
         }

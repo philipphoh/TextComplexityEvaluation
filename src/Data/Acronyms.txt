@@ -181,6 +181,7 @@ OP;Operationssaal
 ORF;Österreichischer Rundfunk
 ORG;Organisation
 ÖTV;ehemalig: Öffentliche Dienste, Transport und Verkehr (Gewerkschaft)
+oBdA;ohne Beschränkung der Allgemeinheit
 PC;Personal Computer
 PD;Privatdozent
 PGA;Postgiroamt

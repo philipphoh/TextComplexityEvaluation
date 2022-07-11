@@ -292,7 +292,6 @@ o.;oben
 o. Ä.;oder Ähnliches
 o. B.;ohne Befund, ohne Binde
 o. B. d. A.;ohne Beschränkung der Allgemeinheit
-oBdA;ohne Beschränkung der Allgemeinheit
 o. J.;ohne Jahr
 o. P.;ordentlicher Professor
 Obb.;Oberbayern
@@ -409,4 +408,4 @@ M. Sc.;Master of Science
 M. d. B.;Mitglied des Bundestages
 M. d. L.;Mitglied des Landtags
 N. T.;Neues Testament
-ver.di;Vereinte Dienstleistungsgewerkschaft
+ver.di.;Vereinte Dienstleistungsgewerkschaft
