@@ -20,7 +20,7 @@ public class Main {
 
         //print Abbreviations
 //        System.out.println(processedScript.getAbbrMeaning());
-        System.out.println(processedScript.countAbbrInText());
+//        System.out.println(processedScript.countAbbrInText()); //false
 
         //filter Abbr
         Script filteredAbbrScript = processedScript.removeAbbr();
@@ -33,22 +33,15 @@ public class Main {
         ArrayList<Sentence> sentencesListFromText = evaluator.getSentencesListFromText();
         ArrayList<Word> wordsListFromText = evaluator.getWordsListFromText(sentencesListFromText);
 
-        evaluator.countCompoundWords(wordsListFromText);
-        evaluator.countAcronyms(wordsListFromText);
-        evaluator.countForeignWords(wordsListFromText);
+        System.out.println(evaluator.countCompoundWords(wordsListFromText));
+        System.out.println( evaluator.countAcronyms(wordsListFromText));
+        System.out.println(evaluator.countForeignWords(wordsListFromText));
 
         //drücken verbesserbare Wörter
-        System.out.println(evaluator.getCompoundWordsListFromText());
-        System.out.println(evaluator.getAcronymsMeaning());
-        System.out.println(evaluator.getForeignWordsListFromText());
+        printImprovableWords(evaluator);
 
         //drücken verbesserbare Sätze
-        ArrayList<Sentence> improvableSentences = new ArrayList<>();
-        for (Sentence sentence: sentencesListFromText)
-            if (sentence.getNumWordsPerSentence() > 15){
-                improvableSentences.add(sentence);
-        }
-        System.out.println(improvableSentences);
+        printImprovableSentences(sentencesListFromText);
 
         //score and evaluation
 //        double entropy = evaluator.getEntropy(wordsListFromText);
@@ -82,6 +75,21 @@ public class Main {
         } else {
             System.out.println("Sehr leicht");
         }
+    }
+
+    private static void printImprovableSentences(ArrayList<Sentence> sentencesListFromText) {
+        ArrayList<Sentence> improvableSentences = new ArrayList<>();
+        for (Sentence sentence: sentencesListFromText)
+            if (sentence.getNumWordsPerSentence() > 15){
+                improvableSentences.add(sentence);
+        }
+        System.out.println(improvableSentences);
+    }
+
+    private static void printImprovableWords(Evaluator evaluator) {
+        System.out.println(evaluator.getCompoundWordsListFromText());
+        System.out.println(evaluator.getAcronymsMeaning());
+        System.out.println(evaluator.getForeignWordsListFromText());
     }
 
     private static String readFile1() throws IOException {

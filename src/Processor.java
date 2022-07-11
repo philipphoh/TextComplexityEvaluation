@@ -52,7 +52,7 @@ public class Processor {
         return abbrInTextMap;
     }
 
-    private ArrayList<String> getAbbrListFromText(){
+    public ArrayList<String> getAbbrListFromText(){
         ArrayList<String> arr = new ArrayList<>();
         Pattern tokenSplitter = Pattern.compile("(([A-ZÜÖÄßa-zäöü]*\\.(\\s|-)?){1,}|([A-ZÜÖÄßa-zäöü]*))([A-ZÜÖÄßa-zäöü]*\\.)");
         Matcher matcher = tokenSplitter.matcher(content.toString());
