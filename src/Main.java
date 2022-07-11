@@ -20,7 +20,7 @@ public class Main {
 
         //print Abbreviations
 //        System.out.println(processedScript.getAbbrMeaning());
-//        System.out.println(processedScript.countAbbrInText()); //false
+//        System.out.println(processedScript.countAbbrInText());
 
         //filter Abbr
         Script filteredAbbrScript = processedScript.removeAbbr();
