@@ -18,8 +18,8 @@ public class Processor {
         abbrListFromText = getAbbrListFromText();
     }
 
-    public int countAbbrInText(){
-        return abbrListFromText.size();
+    public int countAbbrInText() throws IOException {
+        return getAbbrMeaning().size();
     }
 
     public HashMap<String, String> getAbbrMeaning() throws IOException {
@@ -39,7 +39,6 @@ public class Processor {
             String value = parts[1]; //Exception: Index 1 out of bounds for length 1.
                                      // Length of parts is 2 so i don't know to fix these code
             abbrFromFileMap.put(key, value);
-
 
             for (String abbr : abbrListFromText){
                 for (String abbrKey : abbrFromFileMap.keySet()){
