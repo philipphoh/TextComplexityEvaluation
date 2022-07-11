@@ -13,9 +13,9 @@ public class Main {
 //        textAsString = readFile1();
 //        System.out.printf(textAsString);
 
-        Script scriptFromFile = new Script("hello hallo. Abtrakt hgfuz. HeeLLO z. B. hgd ggf. abbauprodukt DDR");
+        Script scriptFromFile = new Script("hello hallo jshjd. Abstrakt hgfuz. HeeLLO z. B. hgd ggf. abbauprodukt DDR");
 
-        //process Script
+        //STEP 1: process Script, filter and print Abbreviations
         Processor processedScript = new Processor(scriptFromFile);
 
         //print Abbreviations
@@ -26,7 +26,7 @@ public class Main {
         Script filteredAbbrScript = processedScript.removeAbbr();
         Script normalizedScript = filteredAbbrScript.toLower();
 
-        //evaluate Text
+        //STEP 2: evaluate Text & print Results
         Text textToEvaluate = new Text(new Script(normalizedScript));
         Evaluator evaluator = new Evaluator(textToEvaluate);
 
@@ -82,7 +82,9 @@ public class Main {
         for (Sentence sentence: sentencesListFromText)
             if (sentence.getNumWordsPerSentence() > 15){
                 improvableSentences.add(sentence);
-        }
+            } else if (sentence.getNumCommas() > 1){
+                improvableSentences.add(sentence);
+            }
         System.out.println(improvableSentences);
     }
 
