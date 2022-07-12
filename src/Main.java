@@ -20,7 +20,7 @@ public class Main {
 
         //print Abbreviations
 //        System.out.println(processedScript.getAbbrMeaning());
-//        System.out.println(processedScript.countAbbrInText());
+//        System.out.println(processedScript.countAbbrInText()); 
 
         //filter Abbr
         Script filteredAbbrScript = processedScript.removeAbbr();
@@ -44,7 +44,7 @@ public class Main {
         printImprovableSentences(sentencesListFromText);
 
         //score and evaluation
-//        double entropy = evaluator.getEntropy(wordsListFromText);
+//        double entropy = evaluator.getEntropy(wordsListFromText);//false
 //        System.out.println(entropy);
 
         /**
