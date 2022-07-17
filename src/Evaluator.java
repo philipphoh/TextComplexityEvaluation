@@ -133,15 +133,6 @@ public class Evaluator {
         HashMap<String, Double> wordCountMap = new HashMap<>();
         List<Double> wordProbabilityList = new ArrayList<>();
 
-//        for (Word word : wordsListFromText) {
-//            Integer count = wordCountMap.get(word.toString());
-//            if (wordCountMap.containsKey(word.toString())){
-//                wordCountMap.put(word.toString(), count + 1);
-//            } else {
-//                wordCountMap.put(word.toString(), 1);
-//            }
-//        }
-
         for (Word word : wordsList){
             double wordCount = text.getContent().count(word.getContent());
             if (!wordCountMap.containsKey(word.toString())){
@@ -171,17 +162,7 @@ public class Evaluator {
     public ArrayList<Sentence> getSentencesListFromText(){
         return text.splitTextToSentences();
     }
-    /**
-     * Flesch-Index
-     *
-     * 0-30 - Schwer
-     * 30-50 - Schwierig
-     * 50-60 - Anspruchsvoll
-     * 60-70 - Normal
-     * 70-80 - Einfach
-     * 80-90 - Leicht
-     * 90-100 - Sehr leicht
-     */
+
     public double getReadabilityScore(ArrayList<Sentence> sentencesList, ArrayList<Word> wordsList){
         double ASL = calAverageSentenceLength(sentencesList);
         double ASW = calAverageNumberOfSyllablesPerWord(wordsList);
