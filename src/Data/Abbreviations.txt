@@ -82,7 +82,8 @@ apr.;apropos
 Aq.;Aquarell, Aquarium
 Arbf.;Arbeitsfeld, Arbeitsförderung
 Arbg.;Arbeitgeber
-Arbn., ArbN;Arbeitnehmer
+Arbn.;Arbeitnehmer
+ArbN;Arbeitnehmer
 Arch.;Archäologie, -loge, Architektur, Architekt, Archiv, Archivar
 arr.;arrangieren
 Art.;Artikel / Artikel (Plural), insb. beim Zitieren von Gesetzestexten
@@ -199,9 +200,10 @@ gegr.;gegründet
 geh.;geheftet
 gek.;gekürzt
 Ges.;Gesellschaft
-ges. gesch.;gesetzlich geschützt
+ges.;gesetzlich geschützt
+gesch.;gesetzlich geschützt
 gesch.;geschieden
-Geschw.;Geschwister; Geschwindigkeit
+Geschw.;Geschwister, Geschwindigkeit
 gest.;gestorben
 Gew.;Gewicht
 gez.;gezeichnet
@@ -271,7 +273,7 @@ möbl.;möbliert
 Mrd.;Milliarde(n)
 Md.;Milliarde(n)
 Mia.;Milliarde(n)
-Ms.;
+Ms.;Manuskript
 Mskr.;Manuskript
 mtl.;monatlich
 MwSt.;Mehrwertsteuer
@@ -392,7 +394,7 @@ z. T.;zum Teil
 zz.;zurzeit
 zzt.;zurzeit
 zz.;zu zeigen
-z. Z.,zur Zeit
+z. Z.;zur Zeit
 z. Zt.;zur Zeit
 Ztg.;Zeitung
 Ztr.;Zentner

@@ -35,14 +35,14 @@ public class Processor {
 
         while ((line = br.readLine())!= null) {
             parts = line.split(";");
+
             String key = parts[0];
-            String value = parts[1]; //Exception: Index 1 out of bounds for length 1.
-                                     // Length of parts is 2 so i don't know how to fix these code
+            String value = parts[1];
             abbrFromFileMap.put(key, value);
 
             for (String abbr : abbrListFromText){
                 for (String abbrKey : abbrFromFileMap.keySet()){
-                    if (abbr == abbrKey.toLowerCase()){
+                    if (abbr.toLowerCase().equals(abbrKey.toLowerCase())){
                         abbrInTextMap.put(abbrKey, abbrFromFileMap.get(abbrKey));
                     }
                 }

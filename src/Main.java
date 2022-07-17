@@ -13,14 +13,15 @@ public class Main {
 //        textAsString = readFile1();
 //        System.out.printf(textAsString);
 
-        Script scriptFromFile = new Script("hello hallo jshjd. Abstrakt hgfuz. HeeLLO z. B. hgd ggf. abbauprodukt DDR");
+        Script scriptFromFile = new Script("hello hallo jshjd. Abstrakt hgfuz. HeeLLO B. Sc. hgd ggf. abbauprodukt DDR");
 
         //STEP 1: process Script, filter and print Abbreviations
         Processor processedScript = new Processor(scriptFromFile);
 
         //print Abbreviations
-//        System.out.println(processedScript.getAbbrMeaning());
-//        System.out.println(processedScript.countAbbrInText()); 
+        System.out.println(processedScript.getAbbrListFromText()); //99% correct =))
+        System.out.println(processedScript.getAbbrMeaning());
+        System.out.println(processedScript.countAbbrInText());
 
         //filter Abbr
         Script filteredAbbrScript = processedScript.removeAbbr();
@@ -34,7 +35,7 @@ public class Main {
         ArrayList<Word> wordsListFromText = evaluator.getWordsListFromText(sentencesListFromText);
 
         System.out.println(evaluator.countCompoundWords(wordsListFromText));
-        System.out.println( evaluator.countAcronyms(wordsListFromText));
+        System.out.println(evaluator.countAcronyms(wordsListFromText));
         System.out.println(evaluator.countForeignWords(wordsListFromText));
 
         //drücken verbesserbare Wörter
