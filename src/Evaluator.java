@@ -183,14 +183,25 @@ public class Evaluator {
     }
 
     private double calAverageNumberOfSyllablesPerWord(ArrayList<Word> wordsList){
+        List<Integer> numSyllablesWordList = new ArrayList<>();
+
+        for (Word word: wordsList){
+            numSyllablesWordList.add(word.countSyllable());
+        }
+
+        double ASW = Mathx.mean(numSyllablesWordList);
+        return ASW;
+    }
+
+    private double calAverageWordLength(ArrayList<Word> wordsList){
         List<Integer> lengthWordList = new ArrayList<>();
 
         for (Word word: wordsList){
-            lengthWordList.add(word.countSyllable());
+            lengthWordList.add(word.getLength());
         }
 
-        double ASW = Mathx.mean(lengthWordList);
-        return ASW;
+        double avgLen = Mathx.mean(lengthWordList);
+        return avgLen;
     }
 
 }
