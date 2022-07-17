@@ -43,7 +43,7 @@ public class Processor {
             for (String abbr : abbrListFromText){
                 for (String abbrKey : abbrFromFileMap.keySet()){
                     if (abbr.toLowerCase().equals(abbrKey.toLowerCase())){
-                        abbrInTextMap.put(abbrKey, abbrFromFileMap.get(abbrKey));
+                        abbrInTextMap.put(abbr, abbrFromFileMap.get(abbrKey));
                     }
                 }
             }
