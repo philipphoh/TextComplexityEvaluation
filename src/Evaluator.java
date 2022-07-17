@@ -124,15 +124,14 @@ public class Evaluator {
         return acronymsInTextMap;
     }
 
-    public double getEntropy (ArrayList<Word> wordsList){
-        double entropy = Mathx.info(getWordFrequency(wordsList));
-        return entropy;
+    public double getEntropy (ArrayList<Word> wordsList) {
+        return Mathx.info(getWordProbability(wordsList));
     }
 
 //  Voraussetzung: kein Zeichen am Ende :<
-    private List<Double> getWordFrequency (ArrayList<Word> wordsList){
+    public List<Double> getWordProbability (ArrayList<Word> wordsList){
         HashMap<String, Double> wordCountMap = new HashMap<>();
-        List<Double> wordFrequencyList = new ArrayList<>();
+        List<Double> wordProbabilityList = new ArrayList<>();
 
 //        for (Word word : wordsListFromText) {
 //            Integer count = wordCountMap.get(word.toString());
@@ -151,9 +150,10 @@ public class Evaluator {
         }
 
         for (double val : wordCountMap.values()){
-            wordFrequencyList.add(val);
+            double freqOfVal = val/wordCountMap.size();
+            wordProbabilityList.add(freqOfVal);
         }
-        return wordFrequencyList;
+        return wordProbabilityList;
     }
 
     public ArrayList<Word> getWordsListFromText(ArrayList<Sentence> sentencesList) {

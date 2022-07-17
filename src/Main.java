@@ -1,3 +1,4 @@
+import lingolava.Mathx;
 import lingologs.Script;
 
 import java.io.*;
@@ -5,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     private static String textAsString;
@@ -13,7 +15,7 @@ public class Main {
 //        textAsString = readFile1();
 //        System.out.printf(textAsString);
 
-        Script scriptFromFile = new Script("hello hallo jshjd. Abstrakt hgfuz. HeeLLO B. Sc. hgd ggf. abbauprodukt DDR");
+        Script scriptFromFile = new Script("hello hallo hallo hallo hallo hallo jshjd. Abstrakt hgfuz. HeeLLO B. Sc. hgd ggf. abbauprodukt DDR");
 
         //STEP 1: process Script, filter and print Abbreviations
         Processor processedScript = new Processor(scriptFromFile);
@@ -45,8 +47,9 @@ public class Main {
         printImprovableSentences(sentencesListFromText);
 
         //score and evaluation
-//        double entropy = evaluator.getEntropy(wordsListFromText);//false
-//        System.out.println(entropy);
+        double entropy = evaluator.getEntropy(wordsListFromText);
+        System.out.println(entropy);
+
 
         /**
          * Flesch-Index
