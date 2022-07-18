@@ -13,7 +13,6 @@ public class Main {
         textAsString = readFile();
         System.out.printf(textAsString);
 
-//        Script textAsScript = new Script("hello hallo hallo hallo hallo hallo jshjd. Abstrakt hgfuz. HeeLLO B. Sc. hgd ggf. abbauprodukt DDR");
         Script textAsScript = new Script(textAsString);
         Text text = new Text(textAsScript);
 
