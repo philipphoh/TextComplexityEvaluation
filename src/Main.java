@@ -33,7 +33,7 @@ public class Main {
         evaluatedText.printImprovableWords();
         evaluatedText.printImprovableSentences();
 
-        //print Zugänglichkeits-Score
+        //print accessibility score
         /**
          * Flesch-Index
          *
