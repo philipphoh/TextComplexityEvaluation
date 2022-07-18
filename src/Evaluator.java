@@ -32,14 +32,14 @@ public class Evaluator {
 
     //print results
     public void printImprovableWords() throws IOException {
-        System.out.println(countCompoundWords());
-        System.out.println(getCompoundWordsListFromText());
+        System.out.println("\nDer Text enthält " + countCompoundWords() + " Komposita.");
+        System.out.println("Sie sollten versuchen, folgende Wörter zu ersetzen: " + getCompoundWordsListFromText());
 
-        System.out.println(countAcronyms());
-        System.out.println(getAcronymsMeaning());
+        System.out.println("\nDer Text enthält " + countAcronyms() + " Akronyme.");
+        System.out.println("Sie sollten versuchen, folgende Wörter zu ersetzen: " + getAcronymsMeaning());
 
-        System.out.println(countForeignWords());
-        System.out.println(getForeignWordsListFromText());
+        System.out.println("\nDer Text enthält " + countForeignWords() + " Fremdwörter.");
+        System.out.println("Sie sollten versuchen, folgende Wörter zu ersetzen: " + getForeignWordsListFromText());
     }
 
     public void printImprovableSentences() {
@@ -50,36 +50,38 @@ public class Evaluator {
             } else if (sentence.getNumCommas() > 1){
                 improvableSentences.add(sentence);
             }
-        System.out.println(improvableSentences);
+        System.out.println("\nDie folgenden Sätze sollten gekürzt oder aufgeteilt werden: \n" + improvableSentences);
     }
 
     public void printEntropy(){
-        System.out.println(getEntropy());
+        System.out.println("Der Informationsgehalt nach Shannon beträgt " + getEntropy());
     }
 
     public void printReadabilityScore(){
         double readabilityScore = getReadabilityScore();
-        System.out.println(readabilityScore);
+        String readabilityScoreCategory;
 
         if (readabilityScore > 0 && readabilityScore < 30){
-            System.out.println("Schwer");
+            readabilityScoreCategory = "schwer";
         } else if (readabilityScore >= 30 && readabilityScore < 50){
-            System.out.println("Schwierig");
+            readabilityScoreCategory = "schwierig";
         } else if (readabilityScore >= 50 && readabilityScore < 60) {
-            System.out.println("Anspruchsvoll");
+            readabilityScoreCategory = "anspruchsvoll";
         } else if (readabilityScore >= 60 && readabilityScore < 70) {
-            System.out.println("Normal");
+            readabilityScoreCategory = "normal";
         } else if (readabilityScore >= 70 && readabilityScore < 80) {
-            System.out.println("Einfach");
+            readabilityScoreCategory = "einfach";
         } else if (readabilityScore >= 80 && readabilityScore < 90) {
-            System.out.println("Leicht");
+            readabilityScoreCategory = "leicht";
         } else {
-            System.out.println("Sehr leicht");
+            readabilityScoreCategory = "sehr leicht";
         }
+
+        System.out.println("Der Text erzielt eine " + readabilityScore + " auf dem Flesch-Index. Das bedeutet, der text ist " + readabilityScoreCategory + " zu lesen.");
     }
 
     public void printAvgLenWord(){
-        System.out.println(calAverageWordLength());
+        System.out.println("Die durchschnittliche Wortlänge beträgt " + calAverageWordLength() + " Zeichen pro Wort.");
     }
 
     //count number of acronyms, composita & foreign words in text
