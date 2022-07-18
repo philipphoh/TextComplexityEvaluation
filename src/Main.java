@@ -28,7 +28,7 @@ public class Main {
         Evaluator evaluatedText = new Evaluator(normalizedText);
 
         //print improvable Words & Sentences
-        System.out.println("\n\nDie folgenden Teile des vorliegenden Textes sollten in ihrer Verständlichkeit verbessert werden:");
+        System.out.println("\n\n\nDie folgenden Teile des vorliegenden Textes sollten in ihrer Verständlichkeit verbessert werden:");
         evaluatedText.printImprovableWords();
         processedText.printAbbreviations();
         evaluatedText.printImprovableSentences();
