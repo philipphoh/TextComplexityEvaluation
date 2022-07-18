@@ -47,8 +47,8 @@ public class Main {
          */
         evaluatedText.printAvgLenWord();
         evaluatedText.printReadabilityScore();
-//        evaluatedText.printEntropy();
-        System.out.println(evaluatedText.getWordProbability());
+        evaluatedText.printEntropy();
+
     }
 
     private static String readFile() throws IOException {

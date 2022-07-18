@@ -252,7 +252,7 @@ public class Evaluator {
     }
 
     //split text into sentences and words
-    public ArrayList<Word> getWordsListFromText() {
+    private ArrayList<Word> getWordsListFromText() {
         ArrayList<Word> wordsListFromText = new ArrayList<>();
 
         for (Sentence sentence: sentencesList){
@@ -264,7 +264,7 @@ public class Evaluator {
         return wordsListFromText;
     }
 
-    public ArrayList<Sentence> getSentencesListFromText(){
+    private ArrayList<Sentence> getSentencesListFromText(){
         return text.splitTextToSentences();
     }
 

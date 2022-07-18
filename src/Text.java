@@ -14,7 +14,7 @@ public class Text {
     }
 
     public ArrayList<Sentence> splitTextToSentences() {
-        List<Script> sentencesList = content.split("[!?\\.: ]+");
+        List<Script> sentencesList = content.split("([!?\\.:]\\s?)+");
         for (Script sentence : sentencesList){
             sentences.add(new Sentence(sentence));
         }

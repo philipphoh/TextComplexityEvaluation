@@ -16,7 +16,8 @@ public class Sentence {
 
     public ArrayList<Word> splitSentenceIntoWords() {
         ArrayList<Word> words = new ArrayList<>();
-        List<Script> wordsList = content.split("[^A-ZÜÖÄßa-züöä]+");
+//        List<Script> wordsList = content.split("[^A-ZÜÖÄßa-züöä]+");
+        List<Script> wordsList = content.split("(\s|[.;,])+");
         for (Script word : wordsList){
             words.add(new Word(word));
         }
