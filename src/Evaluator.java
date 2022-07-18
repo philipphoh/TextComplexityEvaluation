@@ -7,6 +7,9 @@ import java.util.List;
 
 public class Evaluator {
 
+    private static final String FOREIGN_WORDS_FILE_PATH = "./src/Data/ForeignWords.txt";
+    private static final String COMPOUND_WORDS_FILE_PATH = "./src/Data/composita.txt";
+
     private Text text;
     private ArrayList<Sentence> sentencesList;
     private ArrayList<Word> wordsList;
@@ -27,6 +30,7 @@ public class Evaluator {
         acronymsInTextMap = new HashMap<>();
     }
 
+    //print results
     public void printImprovableWords() throws IOException {
         System.out.println(countCompoundWords());
         System.out.println(getCompoundWordsListFromText());
@@ -78,6 +82,7 @@ public class Evaluator {
         System.out.println(calAverageWordLength());
     }
 
+    //count number of acronyms, composita & foreign words in text
     private int countAcronyms() throws IOException {
         for (Word word: wordsList){
             if (checkAcronyms(word))
@@ -104,6 +109,7 @@ public class Evaluator {
         return foreignWordsListFromText.size();
     }
 
+    //check if a word is acronym | composita | foreign or not
     private boolean checkAcronyms(Word word) throws IOException {
         File abbreviationsFile = new File("./src/Data/Acronyms.txt");
         FileReader fr = new FileReader(abbreviationsFile);
@@ -130,44 +136,45 @@ public class Evaluator {
     }
 
     private boolean checkCompound (Word word) throws IOException {
-        File compoundWordsFile = new File("./src/Data/composita.txt");
-        FileReader fr = new FileReader(compoundWordsFile);
-
-        ArrayList<String> compoundWordsList = new ArrayList<>();
-
-        BufferedReader br = new BufferedReader(fr);
-        String line;
-        while ((line = br.readLine())!= null) {
-            compoundWordsList.add(line);
-            for (String compoundWord : compoundWordsList){
-                if (word.toString().equals(compoundWord.toLowerCase())){
-                    word.setCompound(true);
-                    return word.isCompound();
-                }
+        ArrayList<String> compoundWordsList = readWordsFromFile(COMPOUND_WORDS_FILE_PATH);
+        for (String compoundWord : compoundWordsList){
+            if (word.toString().equals(compoundWord.toLowerCase())){
+                word.setCompound(true);
+                return word.isCompound();
             }
         }
         return false;
     }
 
     private boolean checkForeign(Word word) throws IOException {
-
-        File foreignWordsFile = new File("./src/Data/ForeignWords.txt");
-        FileReader fr = new FileReader(foreignWordsFile);
-
-        ArrayList<String> foreignWordsList = new ArrayList<>();
-
-        BufferedReader br = new BufferedReader(fr);
-        String line;
-        while ((line = br.readLine()) != null){
-            foreignWordsList.add(line);
-            for (String foreignWord : foreignWordsList){
-                if (word.toString().equals(foreignWord.toLowerCase())){
-                    word.setForeign(true);
-                    return word.isForeign();
-                }
+        ArrayList<String> foreignWordsList = readWordsFromFile(FOREIGN_WORDS_FILE_PATH);
+        for (String foreignWord : foreignWordsList){
+            if (word.toString().equals(foreignWord.toLowerCase())){
+                word.setForeign(true);
+                return word.isForeign();
             }
         }
         return false;
+    }
+
+    private ArrayList<String> readWordsFromFile(String path) throws IOException {
+
+        File wordsFromFile = new File(path);
+        FileReader fr = new FileReader(wordsFromFile);
+
+        ArrayList<String> wordsListFromFile = new ArrayList<>();
+
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        while ((line = br.readLine()) != null) {
+            wordsListFromFile.add(line);
+        }
+            return wordsListFromFile;
+    }
+
+    //get compoundWordsList, foreignWordsList and acronymsHashMap
+    private HashMap<String, String> getAcronymsMeaning() {
+        return acronymsInTextMap;
     }
 
     private ArrayList<Word> getCompoundWordsListFromText() {
@@ -178,15 +185,12 @@ public class Evaluator {
         return foreignWordsListFromText;
     }
 
-    private HashMap<String, String> getAcronymsMeaning() {
-        return acronymsInTextMap;
-    }
-
+    //calculate entropy
     public double getEntropy () {
         return Mathx.info(getWordProbability());
     }
 
-//  Voraussetzung: kein Zeichen am Ende :<
+    // Voraussetzung: kein Zeichen am Ende :<
     private List<Double> getWordProbability (){
         HashMap<String, Double> wordCountMap = new HashMap<>();
         List<Double> wordProbabilityList = new ArrayList<>();
@@ -205,6 +209,7 @@ public class Evaluator {
         return wordProbabilityList;
     }
 
+    //calculate readability score (Flesch - Formel)
     public double getReadabilityScore(){
         double ASL = calAverageSentenceLength();
         double ASW = calAverageNumberOfSyllablesPerWord();
@@ -246,6 +251,7 @@ public class Evaluator {
         return avgLen;
     }
 
+    //split text into sentences and words
     public ArrayList<Word> getWordsListFromText() {
         ArrayList<Word> wordsListFromText = new ArrayList<>();
 

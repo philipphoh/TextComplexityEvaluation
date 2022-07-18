@@ -26,7 +26,7 @@ public class Main {
         //filter Abbr & normalize Text
         Text normalizedText = processedText.normalize();
 
-        //STEP 3: evaluate Text & print Results
+        //STEP 3, 4, 5: evaluate Text & print Results
         Evaluator evaluatedText = new Evaluator(normalizedText);
 
         //print improvable Words & Sentences
@@ -34,8 +34,6 @@ public class Main {
         evaluatedText.printImprovableSentences();
 
         //print Zugänglichkeits-Score
-        evaluatedText.printEntropy();
-
         /**
          * Flesch-Index
          *
@@ -47,8 +45,9 @@ public class Main {
          * 80-90 - Leicht
          * 90-100 - Sehr leicht
          */
+        evaluatedText.printAvgLenWord();
+        evaluatedText.printEntropy();
         evaluatedText.printReadabilityScore();
-
     }
 
     private static String readFile() throws IOException {
