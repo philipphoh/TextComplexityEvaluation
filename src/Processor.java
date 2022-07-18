@@ -10,19 +10,33 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Processor {
-    private Script content;
+    private Text text;
     private ArrayList<String> abbrListFromText;
 
-    public Processor(Script content) {
-        this.content = content;
+    public Processor(Text text) {
+        this.text = text;
         abbrListFromText = getAbbrListFromText();
     }
 
-    public int countAbbrInText() throws IOException {
+    public void printAbbreviations() throws IOException {
+        System.out.println(countAbbrInText());
+        System.out.println(getAbbrMeaning());
+
+//        System.out.println(getAbbrListFromText()); //99% correct =))
+    }
+
+    public Text normalize(){
+        Script textWithoutAbbr = text.getContent().replace("(([A-ZÜÖÄßa-zäöü]*\\.(\\s|-)?){1,}|([A-ZÜÖÄßa-zäöü]*))([A-ZÜÖÄßa-zäöü]*\\.)", "");
+        Script textWithoutAbbrAndRedundantSpaces = textWithoutAbbr.replace(" {2,}", " ");
+
+        return new Text(textWithoutAbbrAndRedundantSpaces.toLower());
+    }
+
+    private int countAbbrInText() throws IOException {
         return getAbbrMeaning().size();
     }
 
-    public HashMap<String, String> getAbbrMeaning() throws IOException {
+    private HashMap<String, String> getAbbrMeaning() throws IOException {
         File abbreviationsFile = new File("./src/Data/Abbreviations.txt");
         FileReader fr = new FileReader(abbreviationsFile);
 
@@ -51,23 +65,15 @@ public class Processor {
         return abbrInTextMap;
     }
 
-    public ArrayList<String> getAbbrListFromText(){
+    private ArrayList<String> getAbbrListFromText(){
         ArrayList<String> arr = new ArrayList<>();
         Pattern tokenSplitter = Pattern.compile("(([A-ZÜÖÄßa-zäöü]*\\.(\\s|-)?){1,}|([A-ZÜÖÄßa-zäöü]*))([A-ZÜÖÄßa-zäöü]*\\.)");
-        Matcher matcher = tokenSplitter.matcher(content.toString());
+        Matcher matcher = tokenSplitter.matcher(text.getContent().toString());
 
         while (matcher.find()){
             arr.add(matcher.group());
         }
         return arr;
     }
-
-    public Script removeAbbr() {
-        Script textWithoutAbbr = content.replace("(([A-ZÜÖÄßa-zäöü]*\\.(\\s|-)?){1,}|([A-ZÜÖÄßa-zäöü]*))([A-ZÜÖÄßa-zäöü]*\\.)", "");
-        Script textWithoutAbbrAndRedundantSpaces = textWithoutAbbr.replace(" {2,}", " ");
-
-        return textWithoutAbbrAndRedundantSpaces ;
-    }
-
 
 }

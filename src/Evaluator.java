@@ -6,20 +6,79 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Evaluator {
+
     private Text text;
+    private ArrayList<Sentence> sentencesList;
+    private ArrayList<Word> wordsList;
+
     private ArrayList<Word> foreignWordsListFromText;
     private ArrayList<Word> compoundWordsListFromText;
     private HashMap<String, String> acronymsInTextMap;
 
 
     public Evaluator(Text text) {
+
         this.text = text;
+        this.sentencesList = getSentencesListFromText();
+        this.wordsList = getWordsListFromText();
+
         foreignWordsListFromText = new ArrayList<>();
         compoundWordsListFromText = new ArrayList<>();
         acronymsInTextMap = new HashMap<>();
     }
 
-    public int countAcronyms(ArrayList<Word> wordsList) throws IOException {
+    public void printImprovableWords() throws IOException {
+        System.out.println(countCompoundWords());
+        System.out.println(getCompoundWordsListFromText());
+
+        System.out.println(countAcronyms());
+        System.out.println(getAcronymsMeaning());
+
+        System.out.println(countForeignWords());
+        System.out.println(getForeignWordsListFromText());
+    }
+
+    public void printImprovableSentences() {
+        ArrayList<Sentence> improvableSentences = new ArrayList<>();
+        for (Sentence sentence: sentencesList)
+            if (sentence.getNumWordsPerSentence() > 15){
+                improvableSentences.add(sentence);
+            } else if (sentence.getNumCommas() > 1){
+                improvableSentences.add(sentence);
+            }
+        System.out.println(improvableSentences);
+    }
+
+    public void printEntropy(){
+        System.out.println(getEntropy());
+    }
+
+    public void printReadabilityScore(){
+        double readabilityScore = getReadabilityScore();
+        System.out.println(readabilityScore);
+
+        if (readabilityScore > 0 && readabilityScore < 30){
+            System.out.println("Schwer");
+        } else if (readabilityScore >= 30 && readabilityScore < 50){
+            System.out.println("Schwierig");
+        } else if (readabilityScore >= 50 && readabilityScore < 60) {
+            System.out.println("Anspruchsvoll");
+        } else if (readabilityScore >= 60 && readabilityScore < 70) {
+            System.out.println("Normal");
+        } else if (readabilityScore >= 70 && readabilityScore < 80) {
+            System.out.println("Einfach");
+        } else if (readabilityScore >= 80 && readabilityScore < 90) {
+            System.out.println("Leicht");
+        } else {
+            System.out.println("Sehr leicht");
+        }
+    }
+
+    public void printAvgLenWord(){
+        System.out.println(calAverageWordLength());
+    }
+
+    private int countAcronyms() throws IOException {
         for (Word word: wordsList){
             if (checkAcronyms(word))
                 return acronymsInTextMap.size();
@@ -27,7 +86,7 @@ public class Evaluator {
         return 0;
     }
 
-    public int countCompoundWords(ArrayList<Word> wordsList) throws IOException {
+    private int countCompoundWords() throws IOException {
         for (Word word :  wordsList){
             if (checkCompound(word)){
                 compoundWordsListFromText.add(word);
@@ -36,7 +95,7 @@ public class Evaluator {
         return compoundWordsListFromText.size();
     }
 
-    public int countForeignWords(ArrayList<Word> wordsList) throws IOException {
+    private int countForeignWords() throws IOException {
         for (Word word :  wordsList){
             if (checkForeign(word)){
                 foreignWordsListFromText.add(word);
@@ -45,7 +104,7 @@ public class Evaluator {
         return foreignWordsListFromText.size();
     }
 
-    public boolean checkAcronyms(Word word) throws IOException {
+    private boolean checkAcronyms(Word word) throws IOException {
         File abbreviationsFile = new File("./src/Data/Acronyms.txt");
         FileReader fr = new FileReader(abbreviationsFile);
 
@@ -111,24 +170,24 @@ public class Evaluator {
         return false;
     }
 
-    public ArrayList<Word> getCompoundWordsListFromText() {
+    private ArrayList<Word> getCompoundWordsListFromText() {
         return compoundWordsListFromText;
     }
 
-    public ArrayList<Word> getForeignWordsListFromText() {
+    private ArrayList<Word> getForeignWordsListFromText() {
         return foreignWordsListFromText;
     }
 
-    public HashMap<String, String> getAcronymsMeaning() {
+    private HashMap<String, String> getAcronymsMeaning() {
         return acronymsInTextMap;
     }
 
-    public double getEntropy (ArrayList<Word> wordsList) {
-        return Mathx.info(getWordProbability(wordsList));
+    public double getEntropy () {
+        return Mathx.info(getWordProbability());
     }
 
 //  Voraussetzung: kein Zeichen am Ende :<
-    private List<Double> getWordProbability (ArrayList<Word> wordsList){
+    private List<Double> getWordProbability (){
         HashMap<String, Double> wordCountMap = new HashMap<>();
         List<Double> wordProbabilityList = new ArrayList<>();
 
@@ -146,32 +205,16 @@ public class Evaluator {
         return wordProbabilityList;
     }
 
-    public ArrayList<Word> getWordsListFromText(ArrayList<Sentence> sentencesList) {
-        ArrayList<Word> wordsListFromText = new ArrayList<>();
-
-        for (Sentence sentence: sentencesList){
-            ArrayList<Word> wordsListFromSentence = sentence.splitSentenceIntoWords();
-            for (Word w : wordsListFromSentence){
-                 wordsListFromText.add(w);
-            }
-        }
-        return wordsListFromText;
-    }
-
-    public ArrayList<Sentence> getSentencesListFromText(){
-        return text.splitTextToSentences();
-    }
-
-    public double getReadabilityScore(ArrayList<Sentence> sentencesList, ArrayList<Word> wordsList){
-        double ASL = calAverageSentenceLength(sentencesList);
-        double ASW = calAverageNumberOfSyllablesPerWord(wordsList);
+    public double getReadabilityScore(){
+        double ASL = calAverageSentenceLength();
+        double ASW = calAverageNumberOfSyllablesPerWord();
 
         //Flesch-Formel
         double readabilityScore = 180 - ASL - 58.5 * ASW;
         return readabilityScore;
     }
 
-    private double calAverageSentenceLength(ArrayList<Sentence> sentencesList){
+    private double calAverageSentenceLength(){
         List<Integer> lengthSentenceList = new ArrayList<>();
         for (Sentence sentence : sentencesList){
             lengthSentenceList.add(sentence.getNumWordsPerSentence());
@@ -181,7 +224,7 @@ public class Evaluator {
         return ASL;
     }
 
-    private double calAverageNumberOfSyllablesPerWord(ArrayList<Word> wordsList){
+    private double calAverageNumberOfSyllablesPerWord(){
         List<Integer> numSyllablesWordList = new ArrayList<>();
 
         for (Word word: wordsList){
@@ -192,7 +235,7 @@ public class Evaluator {
         return ASW;
     }
 
-    private double calAverageWordLength(ArrayList<Word> wordsList){
+    private double calAverageWordLength(){
         List<Integer> lengthWordList = new ArrayList<>();
 
         for (Word word: wordsList){
@@ -201,6 +244,22 @@ public class Evaluator {
 
         double avgLen = Mathx.mean(lengthWordList);
         return avgLen;
+    }
+
+    public ArrayList<Word> getWordsListFromText() {
+        ArrayList<Word> wordsListFromText = new ArrayList<>();
+
+        for (Sentence sentence: sentencesList){
+            ArrayList<Word> wordsListFromSentence = sentence.splitSentenceIntoWords();
+            for (Word w : wordsListFromSentence){
+                wordsListFromText.add(w);
+            }
+        }
+        return wordsListFromText;
+    }
+
+    public ArrayList<Sentence> getSentencesListFromText(){
+        return text.splitTextToSentences();
     }
 
 }
