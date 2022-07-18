@@ -10,10 +10,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         //STEP 1: read Text from file
-//        textAsString = readFile1();
-//        System.out.printf(textAsString);
+        textAsString = readFile();
+        System.out.printf(textAsString);
 
-        Script textAsScript = new Script("hello hallo hallo hallo hallo hallo jshjd. Abstrakt hgfuz. HeeLLO B. Sc. hgd ggf. abbauprodukt DDR");
+//        Script textAsScript = new Script("hello hallo hallo hallo hallo hallo jshjd. Abstrakt hgfuz. HeeLLO B. Sc. hgd ggf. abbauprodukt DDR");
+        Script textAsScript = new Script(textAsString);
         Text text = new Text(textAsScript);
 
         //STEP 2: find, print and filter Abbreviations, normalize Text
@@ -45,8 +46,9 @@ public class Main {
          * 90-100 - Sehr leicht
          */
         evaluatedText.printAvgLenWord();
-        evaluatedText.printEntropy();
         evaluatedText.printReadabilityScore();
+//        evaluatedText.printEntropy();
+        System.out.println(evaluatedText.getWordProbability());
     }
 
     private static String readFile() throws IOException {

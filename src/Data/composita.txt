@@ -6,3 +6,6 @@ Abbaugelände
 Abbaugrenze
 Abbauort
 Abbauprodukt
+Ohrenärzte
+Zahnärzte
+Krankenhaus

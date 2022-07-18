@@ -191,7 +191,7 @@ public class Evaluator {
     }
 
     // Voraussetzung: kein Zeichen am Ende :<
-    private List<Double> getWordProbability (){
+    public List<Double> getWordProbability (){
         HashMap<String, Double> wordCountMap = new HashMap<>();
         List<Double> wordProbabilityList = new ArrayList<>();
 

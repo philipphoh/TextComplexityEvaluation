@@ -223,6 +223,7 @@ TÜV;Technischer Überwachungsverein
 TV;Turnverein
 USt;Umsatzsteuer
 UA;Überwachungsanordnung
+Uni;Universität
 UFO;Unbekanntes Flugobjekt
 UID;Unternehmens-Identifikationsnummer
 UKW;Ultrakurzwelle

@@ -22,7 +22,7 @@ public class Word {
         int counter = 0;
 
         ArrayList<String> arr = new ArrayList<>();
-        Pattern tokenSplitter = Pattern.compile("[aeiouyüöä]+");
+        Pattern tokenSplitter = Pattern.compile("[aeiouyäöü]+[^$e]");
         Matcher matcher = tokenSplitter.matcher(content);
 
         while (matcher.find()){
