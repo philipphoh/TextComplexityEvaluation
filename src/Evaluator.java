@@ -14,8 +14,8 @@ public class Evaluator {
     private ArrayList<Sentence> sentencesList;
     private ArrayList<Word> wordsList;
 
-    private ArrayList<Word> foreignWordsListFromText;
-    private ArrayList<Word> compoundWordsListFromText;
+    private ArrayList<String> foreignWordsListFromText;
+    private ArrayList<String> compoundWordsListFromText;
     private HashMap<String, String> acronymsInTextMap;
 
 
@@ -94,19 +94,19 @@ public class Evaluator {
     private int countCompoundWords() throws IOException {
         for (Word word :  wordsList){
             if (checkCompound(word)){
-                compoundWordsListFromText.add(word);
+                return compoundWordsListFromText.size();
             }
         }
-        return compoundWordsListFromText.size();
+        return 0;
     }
 
     private int countForeignWords() throws IOException {
         for (Word word :  wordsList){
             if (checkForeign(word)){
-                foreignWordsListFromText.add(word);
+                return foreignWordsListFromText.size();
             }
         }
-        return foreignWordsListFromText.size();
+        return 0;
     }
 
     //check if a word is acronym | composita | foreign or not
@@ -139,6 +139,7 @@ public class Evaluator {
         ArrayList<String> compoundWordsList = readWordsFromFile(COMPOUND_WORDS_FILE_PATH);
         for (String compoundWord : compoundWordsList){
             if (word.toString().equals(compoundWord.toLowerCase())){
+                compoundWordsListFromText.add(compoundWord);
                 word.setCompound(true);
                 return word.isCompound();
             }
@@ -150,6 +151,7 @@ public class Evaluator {
         ArrayList<String> foreignWordsList = readWordsFromFile(FOREIGN_WORDS_FILE_PATH);
         for (String foreignWord : foreignWordsList){
             if (word.toString().equals(foreignWord.toLowerCase())){
+                foreignWordsListFromText.add(foreignWord);
                 word.setForeign(true);
                 return word.isForeign();
             }
@@ -177,11 +179,11 @@ public class Evaluator {
         return acronymsInTextMap;
     }
 
-    private ArrayList<Word> getCompoundWordsListFromText() {
+    private ArrayList<String> getCompoundWordsListFromText() {
         return compoundWordsListFromText;
     }
 
-    private ArrayList<Word> getForeignWordsListFromText() {
+    private ArrayList<String> getForeignWordsListFromText() {
         return foreignWordsListFromText;
     }
 
@@ -191,7 +193,7 @@ public class Evaluator {
     }
 
     // Voraussetzung: kein Zeichen am Ende :<
-    public List<Double> getWordProbability (){
+    private List<Double> getWordProbability (){
         HashMap<String, Double> wordCountMap = new HashMap<>();
         List<Double> wordProbabilityList = new ArrayList<>();
 

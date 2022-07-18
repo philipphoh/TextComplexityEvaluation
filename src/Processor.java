@@ -19,8 +19,8 @@ public class Processor {
     }
 
     public void printAbbreviations() throws IOException {
-        System.out.println(countAbbrInText());
         System.out.println(getAbbrMeaning());
+        System.out.println(countAbbrInText());
 
 //        System.out.println(getAbbrListFromText()); //99% correct =))
     }
