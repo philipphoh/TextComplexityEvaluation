@@ -41,10 +41,6 @@ public class Word {
         return content;
     }
 
-    public void setContent(Script content) {
-        this.content = content;
-    }
-
     public boolean isCompound() {
         return isCompound;
     }

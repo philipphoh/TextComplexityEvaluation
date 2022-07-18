@@ -47,7 +47,6 @@ public class Main {
         evaluatedText.printAvgLenWord();
         evaluatedText.printReadabilityScore();
         evaluatedText.printEntropy();
-
     }
 
     private static String readFile() throws IOException {
