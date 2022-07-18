@@ -209,7 +209,7 @@ public class Evaluator {
         return wordProbabilityList;
     }
 
-    //calculate readability score (Flesch - Formel)
+    //calculate readability score (Flesch-Formel)
     public double getReadabilityScore(){
         double ASL = calAverageSentenceLength();
         double ASW = calAverageNumberOfSyllablesPerWord();
