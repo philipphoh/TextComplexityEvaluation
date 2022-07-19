@@ -13,13 +13,14 @@ public class Main {
 
         //STEP 1: read Text from file
         textAsString = readFile();
-        System.out.printf("\nDie bereitgestellte Datei enthält den folgenden Text: \n" + textAsString);
+        System.out.println("\nDie bereitgestellte Datei enthält den folgenden Text: \n" + textAsString);
 
         Script textAsScript = new Script(textAsString);
         Text text = new Text(textAsScript);
 
         //STEP 2: find, print and filter Abbreviations, normalize Text
         Processor processedText = new Processor(text);
+        processedText.printAbbreviations();
 
         //filter Abbr & normalize Text
         Text normalizedText = processedText.normalize();
@@ -30,7 +31,6 @@ public class Main {
         //print improvable Words & Sentences
         System.out.println("\n\n\nDie folgenden Teile des vorliegenden Textes sollten in ihrer Verständlichkeit verbessert werden:");
         evaluatedText.printImprovableWords();
-        processedText.printAbbreviations();
         evaluatedText.printImprovableSentences();
 
         //print accessibility score

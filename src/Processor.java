@@ -12,10 +12,12 @@ import java.util.regex.Pattern;
 public class Processor {
     private Text text;
     private ArrayList<String> abbrListFromText;
+    private HashMap<String, String> abbrInTextMap ;
 
     public Processor(Text text) {
         this.text = text;
         abbrListFromText = getAbbrListFromText();
+        abbrInTextMap = new HashMap<>();
     }
 
     public void printAbbreviations() throws IOException {
@@ -26,8 +28,12 @@ public class Processor {
     }
 
     public Text normalize(){
-        Script textWithoutAbbr = text.getContent().replace("(([A-ZÜÖÄßa-zäöü]*\\.(\\s|-)?){1,}|([A-ZÜÖÄßa-zäöü]*))([A-ZÜÖÄßa-zäöü]*\\.)", "");
-        Script textWithoutAbbrAndRedundantSpaces = textWithoutAbbr.replace(" {2,}", " ");
+        Script textWithoutAbbrAndRedundantSpaces = new Script();
+
+        for (String str : abbrInTextMap.keySet()) {
+            Script textWithoutAbbr = text.getContent().replace(str, "");
+            textWithoutAbbrAndRedundantSpaces = textWithoutAbbr.replace(" {2,}", " ");
+        }
 
         return new Text(textWithoutAbbrAndRedundantSpaces.toLower());
     }
@@ -41,7 +47,6 @@ public class Processor {
         FileReader fr = new FileReader(abbreviationsFile);
 
         HashMap<String, String> abbrFromFileMap = new HashMap<>();
-        HashMap<String, String> abbrInTextMap = new HashMap<>();
 
         BufferedReader br = new BufferedReader(fr);
         String line;
