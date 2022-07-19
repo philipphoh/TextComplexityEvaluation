@@ -12,10 +12,12 @@ import java.util.regex.Pattern;
 public class Processor {
     private Text text;
     private ArrayList<String> abbrListFromText;
+    private HashMap<String,String> abbrInTextMap;
 
     public Processor(Text text) {
         this.text = text;
         abbrListFromText = getAbbrListFromText();
+        abbrInTextMap = new HashMap<>();
     }
 
     public void printAbbreviations() throws IOException {
@@ -41,7 +43,6 @@ public class Processor {
         FileReader fr = new FileReader(abbreviationsFile);
 
         HashMap<String, String> abbrFromFileMap = new HashMap<>();
-        HashMap<String, String> abbrInTextMap = new HashMap<>();
 
         BufferedReader br = new BufferedReader(fr);
         String line;
